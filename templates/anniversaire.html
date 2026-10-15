@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Joyeux anniversaire ❤️</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <main class="carte">
+
+        <div class="decorations">🎈 ✨ 🎂 ✨ 🎈</div>
+
+        <p class="petit-titre">UN JOUR SPÉCIAL POUR UNE PERSONNE SPÉCIALE</p>
+
+        <h1>Joyeux anniversaire</h1>
+
+        <h2>Eugenie ❤️</h2>
+
+        <div class="separateur">♥ ───────── ♥</div>
+
+        <p class="message">
+            Aujourd'hui est un jour magnifique,
+            car nous célébrons la naissance d'une personne exceptionnelle.
+
+            Je te souhaite une vie remplie de bonheur,
+            de santé, d'amour et de réussite.
+
+            Que chaque jour t'apporte une nouvelle raison de sourire,
+            que tes rêves deviennent réalité
+            et que ton cœur reste toujours rempli de joie.
+
+            Profite pleinement de cette journée qui est la tienne.
+
+            Joyeux anniversaire ! Bibi Aridi 🎉❤️
+        </p>
+
+        <h3>ton jour 📸</h3>
+
+        <div class="galerie">
+
+            <img src="{{ url_for('static', filename='photos/photo1.jpg') }}"
+                 alt="Premier souvenir">
+
+            <img src="{{ url_for('static', filename='photos/photo2.jpg') }}"
+                 alt="Deuxième souvenir">
+
+            <img src="{{ url_for('static', filename='photos/photo3.jpg') }}"
+                 alt="Troisième souvenir">
+
+        </div>
+
+        <div class="signature">
+            Avec beaucoup d'amour ❤️
+        </div>
+
+        <div class="decorations">💐 🎁 💖 🎁 💐</div>
+
+        <footer>
+            Une carte créée spécialement pour toi.
+        </footer>
+
+    </main>
+</body>
+</html>

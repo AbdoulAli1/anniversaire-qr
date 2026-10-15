@@ -1,0 +1,150 @@
+
+/* Réglages généraux */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px 15px;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #4a2435;
+    background: linear-gradient(
+        135deg,
+        #fff0f5,
+        #f9dce7,
+        #fff8e9
+    );
+}
+
+/* Carte principale */
+.carte {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 35px 25px;
+    text-align: center;
+    background: #ffffff;
+    border: 2px solid #e8bfd0;
+    border-radius: 25px;
+    box-shadow: 0 12px 40px rgba(120, 50, 80, 0.15);
+}
+
+/* Décorations */
+.decorations {
+    margin: 15px 0;
+    font-size: 28px;
+}
+
+/* Petit titre */
+.petit-titre {
+    margin-top: 25px;
+    color: #ad5277;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    line-height: 1.8;
+}
+
+/* Titres */
+h1 {
+    margin: 20px 0 10px;
+    color: #b52b62;
+    font-size: clamp(30px, 6vw, 48px);
+}
+
+h2 {
+    margin: 10px 0;
+    color: #c59a50;
+    font-size: 32px;
+}
+
+h3 {
+    margin-top: 35px;
+    color: #b52b62;
+    font-size: 23px;
+}
+
+/* Séparateur */
+.separateur {
+    margin: 25px 0;
+    color: #d5a3b7;
+}
+
+/* Message */
+.message {
+    max-width: 570px;
+    margin: 25px auto;
+    font-size: 17px;
+    line-height: 1.9;
+    white-space: pre-line;
+}
+
+/* Galerie des photos */
+.galerie {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 25px;
+}
+
+.galerie img {
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* Première photo plus grande */
+.galerie img:first-child {
+    grid-column: 1 / -1;
+    height: 340px;
+}
+
+/* Signature */
+.signature {
+    margin: 35px 0;
+    color: #b52b62;
+    font-size: 21px;
+    font-style: italic;
+}
+
+/* Pied de page */
+footer {
+    margin-top: 25px;
+    color: #987481;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+/* Adaptation aux petits écrans */
+@media (max-width: 480px) {
+    body {
+        padding: 12px 8px;
+    }
+
+    .carte {
+        padding: 25px 14px;
+        border-radius: 18px;
+    }
+
+    .message {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .galerie {
+        gap: 9px;
+    }
+
+    .galerie img {
+        height: 170px;
+        border-radius: 10px;
+    }
+
+    .galerie img:first-child {
+        height: 240px;
+    }
+}
