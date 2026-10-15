@@ -1,7 +1,7 @@
 import qrcode
 
 #adresse locale de notre carte pour le premier test
-url_carte = "http://172.0.0.1:5000"
+url_carte = "https://anniversaire-qr.onrender.com"
 #configuration du QR code
 qr = qrcode.QRCode(
     version=None,
