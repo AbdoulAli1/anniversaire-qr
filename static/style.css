@@ -422,3 +422,98 @@ em {
         transition-duration: .01ms !important;
     }
 }
+
+
+/* Lecteur musical de la carte */
+.lecteur-musique {
+    position: relative;
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    gap: 12px;
+    align-items: center;
+    width: min(100%, 440px);
+    margin: 30px auto 0;
+    padding: 18px;
+    border: 1px solid #e8bfd0;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 8px 25px #60344712;
+    text-align: left;
+}
+
+.musique-icone {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #f8e7ed;
+    color: #b74670;
+    font-size: 29px;
+}
+
+.musique-infos {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.musique-infos strong {
+    color: #49303b;
+    font-size: 13px;
+}
+
+.musique-infos span {
+    color: #806775;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+#bouton-musique {
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 50%;
+    background: #b74670;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    transition: transform .2s, background .2s;
+}
+
+#bouton-musique:hover {
+    background: #963456;
+    transform: scale(1.06);
+}
+
+.musique-progression {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #806775;
+    font-size: 11px;
+    font-variant-numeric: tabular-nums;
+}
+
+#barre-musique {
+    flex: 1;
+    width: 100%;
+    accent-color: #b74670;
+    cursor: pointer;
+}
+
+@media (max-width: 380px) {
+    .lecteur-musique {
+        grid-template-columns: 36px minmax(0, 1fr) 40px;
+        gap: 9px;
+        padding: 13px;
+    }
+
+    .musique-icone,
+    #bouton-musique {
+        width: 38px;
+        height: 38px;
+    }
+}

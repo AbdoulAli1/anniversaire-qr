@@ -36,6 +36,38 @@
             </a>
 
             <div class="decorations">🎂 ✨ 💐</div>
+        <div class="lecteur-musique">
+            <audio id="musique-anniversaire"
+                src="{{ url_for('static', filename='music/anniversaire.mp3') }}"
+                preload="metadata">
+            </audio>
+
+            <div class="musique-icone">♫</div>
+
+            <div class="musique-infos">
+                <strong>Une mélodie pour toi</strong>
+                <span id="statut-musique">À écouter pendant tes souvenirs</span>
+            </div>
+
+            <button id="bouton-musique"
+                    type="button"
+                    aria-label="Lire la musique"
+                    aria-pressed="false">
+                ▶
+            </button>
+
+            <div class="musique-progression">
+                <span id="temps-actuel">0:00</span>
+                <input id="barre-musique"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="0"
+                    step="0.1"
+                    aria-label="Position dans la musique">
+                <span id="duree-musique">0:00</span>
+            </div>
+        </div>
         </section>
 
         <section class="message-section">
@@ -117,5 +149,6 @@
     </div>
 
     <script src="{{ url_for('static', filename='galerie.js') }}"></script>
+    <script src="{{ url_for('static', filename='musique.js') }}"></script>
 </body>
 </html>
