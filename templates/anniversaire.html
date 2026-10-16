@@ -5,66 +5,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Joyeux anniversaire ❤️</title>
+    <title>Joyeux anniversaire Eugenie Aridi ❤️</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
-    <main class="carte">
+    <main class="page-anniversaire">
 
-        <div class="decorations">🎈 ✨ 🎂 ✨ 🎈</div>
+        <section class="hero">
+            <div class="petites-etoiles">✦ ✧ ✦</div>
 
-        <p class="petit-titre">UN JOUR SPÉCIAL POUR UNE PERSONNE SPÉCIALE</p>
+            <p class="surtitre">UNE JOURNÉE INOUBLIABLE</p>
 
-        <h1>Joyeux anniversaire</h1>
+            <h1>Joyeux<br><span>anniversaire</span></h1>
 
-        <h2>Eugenie ❤️</h2>
+            <div class="trait-decoratif"></div>
 
-        <div class="separateur">♥ ───────── ♥</div>
+            <h2>Eugenie Aridi <span>♥</span></h2>
 
-        <p class="message">
-            Aujourd'hui est un jour magnifique,
-            car nous célébrons la naissance d'une personne exceptionnelle.
+            <p class="hero-description">
+                Aujourd'hui, le monde célèbre une personne exceptionnelle.
+                Cette petite page est remplie de souvenirs et d'affection,
+                spécialement pour toi.
+            </p>
 
-            Je te souhaite une vie remplie de bonheur,
-            de santé, d'amour et de réussite.
+            <a href="#souvenirs" class="bouton">
+                Découvrir tes souvenirs ↓
+            </a>
 
-            Que chaque jour t'apporte une nouvelle raison de sourire,
-            que tes rêves deviennent réalité
-            et que ton cœur reste toujours rempli de joie.
+            <div class="decorations">🎂 ✨ 💐</div>
+        </section>
 
-            Profite pleinement de cette journée qui est la tienne.
+        <section class="message-section">
+            <p class="surtitre">UN MESSAGE POUR TOI</p>
 
-            Joyeux anniversaire ! Bibi Aridi 🎉❤️
-        </p>
+            <h2>À une personne <em>merveilleuse</em></h2>
 
-        <h3>ton jour 📸</h3>
+            <p>
+                Que cette nouvelle année de ta vie t'apporte la joie,
+                la santé, l'amour et de belles réussites.
+                Que tes rêves prennent vie et que ton sourire
+                illumine chaque journée. Tu mérites le meilleur.
+            </p>
 
-        <div class="galerie">
+            <div class="petit-coeur">♥</div>
+        </section>
 
-            <img src="{{ url_for('static', filename='photos/photo1.jpg') }}"
-                 alt="Premier souvenir">
+        <section class="souvenirs" id="souvenirs">
+            <header class="galerie-entete">
+                <p class="surtitre">LES MOMENTS PRÉCIEUX</p>
+                <h2>Tes jolie <em>souvenirs</em></h2>
+                <p>Chaque photo raconte une petite histoire ❤️</p>
+            </header>
 
-            <img src="{{ url_for('static', filename='photos/photo2.jpg') }}"
-                 alt="Deuxième souvenir">
+            <div class="galerie">
+                {% for photo in photos %}
+                <button
+                    class="photo-carte"
+                    type="button"
+                    data-photo="{{ url_for('static', filename='photos/' ~ photo) }}"
+                    aria-label="Agrandir la photo {{ loop.index }}"
+                >
+                    <img
+                        src="{{ url_for('static', filename='photos/' ~ photo) }}"
+                        alt="Souvenir {{ loop.index }}"
+                        loading="lazy"
+                    >
+                    <span class="photo-numero">
+                        SOUVENIR {{ "%02d" | format(loop.index) }}
+                    </span>
+                    <span class="photo-agrandir">＋</span>
+                </button>
+                {% else %}
+                <p>Aucune photo n'a encore été ajoutée.</p>
+                {% endfor %}
+            </div>
 
-            <img src="{{ url_for('static', filename='photos/photo3.jpg') }}"
-                 alt="Troisième souvenir">
+            <p class="galerie-fin">
+                <span>✦</span> Des souvenirs qui restent dans le cœur
+                <span>✦</span>
+            </p>
+        </section>
 
-        </div>
-
-        <div class="signature">
-            Avec beaucoup d'amour ❤️
-        </div>
-
-        <div class="decorations">💐 🎁 💖 🎁 💐</div>
-
-        <footer>
-            Une carte créée spécialement pour toi.
+        <footer class="fin-page">
+            <div class="decorations">🎁 ♥ 🎈</div>
+            <h2>Encore une fois…</h2>
+            <p class="grand-voeu">Joyeux anniversaire Bibi Aridi !</p>
+            <p>Avec toute mon affection ❤️</p>
         </footer>
 
     </main>
+
+    <div class="visionneuse" id="visionneuse"
+         role="dialog" aria-modal="true"
+         aria-label="Photo agrandie" hidden>
+
+        <button class="fermer" id="fermer"
+                type="button" aria-label="Fermer">×</button>
+
+        <button class="navigation precedent" id="precedent"
+                type="button" aria-label="Photo précédente">‹</button>
+
+        <img id="photo-grande" src="" alt="Photo agrandie">
+
+        <button class="navigation suivant" id="suivant"
+                type="button" aria-label="Photo suivante">›</button>
+
+        <p id="compteur-photo"></p>
+    </div>
+
+    <script src="{{ url_for('static', filename='galerie.js') }}"></script>
 </body>
 </html>
